@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Архив статей </title>
+		{% load static %}
+		<link rel="stylesheet" href="{{ STATIC_URL }}/static/css/article.css">
+	</head>
+	
+	<body>
+	<div class="header">
+		{% load static %}
+		<img src ="{{ STATIC_URL }}/static/image.jpg" class = "center-img">
+	</div>
+	<div class="archive">
+		{% for post in posts %}
+			<div class="one-post">
+				<a href = "{{ STATIC_URL }}/article/{{post.id}}">
+				<h2 class="post-title">{{ post.title }}</h2></a>	
+				<h4>Автор: {{ post.author.username }}</h4>	
+				<p class = "text-post">{{ post.text}}</p>
+			</div>
+		{% endfor %}
+		
+	</div>
+	</body>
+
+</html>
